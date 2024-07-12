@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+  }
+  
+body {
+    background-image: url(../imagens/fundo01.jpg);
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tarefa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px auto;
+    height: 300px auto;
+    background-color: #522663;
+  }
+  h2{
+    background-color: #ad57cf;
+    padding: 0.4rem;
+    width: 600px;
+    color: aliceblue;
+    font-size: 1.1rem;
+    text-align: center;
+}
+h1{
+    background-color: #ad57cf;
+    padding: 0.4rem;
+    width: 800px;
+    margin-top: 6px;
+    color: aliceblue;
+    font-size: 1.1rem;
+    text-align: center;
+}
+ 
+  table {
+      width: 100%;
+  }
+  
+  th {
+      font-weight: bold;
+  }
+  
+  th, td {
+      border: 1px solid #522663;
+      padding: 5px 10px;
+  }
+  .nav{
+    background-color: #ad57cf;
+    padding: 5px;
+    width: 800px;
+    height: 30px;
+    color: aliceblue;
+    font-size: 1.1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .nav ul a{
+    margin: 40px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 8px 8px 8px 8px;
+    -moz-transition: all 1.2s ease;
+      -webkit-transition: all 1.2s ease;
+    -o-transition: all 1.2s ease;
+      transition: all 1.2s ease;
+    color: #3f1d46;
+  }
+  .nav ul a:hover {
+      color: #ad57cf;
+      background-color:#3e1a3f ;
+      -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+  }
+  .novatarefa{
+    margin: 4px;
+    text-decoration: none;
+    padding: 8px 8px 8px 8px;
+    font-size: 1.1rem;
+    -moz-transition: all 1.2s ease;
+      -webkit-transition: all 1.2s ease;
+      -o-transition: all 1.2s ease;
+      transition: all 1.2s ease;
+    color: #ad57cf;
+    background-color:#522663;
+  }
+  .novatarefa:hover {
+      color: #522663;
+      background-color:#ad57cf;
+      -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+  }

@@ -1,0 +1,105 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarefas</title>
+  <link rel="stylesheet" href="View/css/tabelas.css">
+</head>
+
+<body>
+  <div class="tarefa">
+    <div class="nav">
+      <ul>
+        <I<a class="link" href="usuarios.php">Usuarios</a>
+          <a class="link" href="tarefas.php">Tarefas</a>
+          <a class="link" href="index.html">Sair</a>
+      </ul>
+    </div>
+
+    <h1>Tabela Usuarios</h1>
+    <a class="novatarefa" href="cadastro.html">Nova tarefa</a>
+
+    <div class="tabela">
+      <table class="tab">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data Nasc.</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th colspan="2">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="conteudo">
+        </tbody>
+</body>
+
+<script src="View/js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="View/js/sweetalert2.all.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+  async function carregarDados(id) {
+    const request = await fetch('Controller/Usuarios/listarUsuarios.php', { method: 'get' });
+    const response = await request.json();
+    const conteudoTarefa = document.getElementById('conteudo');
+
+    for (const item of response.dados) {
+      conteudoTarefa.innerHTML += `
+      <tr class="linha-tabela" style="border: 3px solid purple">
+        <td>${item.id}</td>
+        <td>${item.nome_completo}</td>
+        <td>${item.data_nasc}</td>
+        <td>${item.email}</td>
+        <td>${item.telefone}</td>
+        <td>
+          <div class="row">
+            <button onclick="editarUsuario(${item.id})">
+              <img src="./View/imagens/lapis.png" width="20px" height="20px">
+            </button>
+            <button onclick="deletarUsuario(${item.id})">
+              <img src="./View/imagens/lata-de-lixo.png" width="20px" height="20px">
+            </button>
+          </div>
+        </td>
+      </tr>`;
+    }
+  }
+  function editarUsuario(id) {
+    window.location.href = `editar.php?id=${id}`;
+  }
+
+  function deletarUsuario(id) {
+    Swal.fire({
+      title: 'Atenção!',
+      text: 'Tem certeza que deseja remover esse usuário?',
+      icon: 'question',
+      showConfirmButton: true,
+      showCancelButton: true,
+    }).then(async function (res) {
+      if (res.isConfirmed) {
+        const config = {
+          method: 'post',
+          body: JSON.stringify({textID: id})
+        };
+        const request = await fetch('Controller/Usuarios/DeletarUsuario.php', config);
+        const response = await request.json();
+        if (response.status == 1) {
+          Swal.fire('Usuário removido com sucesso');
+          window.location.href = "usuarios.html";
+        } else {
+          Swal.fire('Erro ao remover usuário.');
+        }
+      }
+    });
+  }
+
+  $(document).ready(function () {
+    carregarDados();
+  });
+
+</script>
+
+</html>

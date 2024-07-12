@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="View/css/login.css" />
+    <title>Cadastre-se aqui</title>
+  </head>
+  <body>
+    <div class="login">
+        <h2>Senac - Taboão da Serra</h2>
+        <h1><p> Agenda </p></h1>
+        <label for="name">Nome
+          <input type="name" name="Nome" id="textNome" />
+        </label>
+        <label for="dataNasc">Data de Nascimento
+          <input type="date" name="dataNasc" id="textNascimento" />
+        </label>
+        <label for="email">E-mail
+          <input type="email" name="Email" id="textEmail" />
+        </label>
+        <label for="Telefone">Telefone
+            <input type="tel" name="Telefone" id="textTelefone" />
+          </label>
+        <label for="password">Senha
+          <input type="password" name="Senha" id="textSenha" />
+        </label>
+        <label for="passwordconf">Confirmação de Senha
+            <input type="password" name="confSenha" id="textConfSenha" />
+          </label>       
+           <div class="botao">
+            <a href="usuarios.php">
+       <input type="submit" value="Entrar" id="btnEntrar"/>
+      </a>
+      <a href="./login.html">
+       <input type="submit" value="Login" id="btnLogar"/>
+      </a>
+    </div>
+    </div>
+    </body>
+    <script src="./View/js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="./View/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function(){
+        $('#btnEntrar').on('click', async function(e){
+          e.preventDefault();
+          const config = {
+          method: "post",
+          headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            nome:$('#textNome').val(),
+            dataNasc:$('#textNascimento').val(),
+            email:$('#textEmail').val(),
+            telefone:$('#textTelefone').val(),
+            senha:$('#textSenha').val()
+          })
+        };
+        const request = await fetch('Controller/CadastrarUsuario.php', config);
+        const response = await request.json();
+
+        if(response.status == 1){
+          alert('Usuario Cadastrado')
+          window.location.href="usuarios.php";
+        } else{
+          alert('Cadastro não efetuado')
+        }
+        });
+      });
+
+    </script>
+    </html>

@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+  }
+  
+body {
+    background-image: url(../imagens/fundo01.jpg);
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.login{
+    display: flex;
+    margin-top: 10%;
+    flex-direction: column;
+    align-items: center;
+    width: 600px auto;
+    height: 300px auto;
+    background-color: #522663;
+  }
+.login label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+  }
+  
+.login input {
+    background-color: #ad57cf;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 18rem;
+    color: aliceblue;
+  }
+h2{
+    background-color: #ad57cf;
+    padding: 0.4rem;
+    width: 600px;
+    color: aliceblue;
+    font-size: 1.1rem;
+    text-align: center;
+}
+h1{
+    background-color: #ad57cf;
+    padding: 0.4rem;
+    width: 600px;
+    margin-top: 6px;
+    color: aliceblue;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+  .botao{
+    display: flex;
+    background-color: #ad57cf;
+    padding: 0.4rem;
+    color: aliceblue;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    width: 15pauto;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+#botao a:hover {
+    font-size: 1.1rem;
+    width: 7rem;
+  }
